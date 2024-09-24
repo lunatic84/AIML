@@ -106,8 +106,8 @@ st.pyplot(fig)
 # plt.tight_layout()
 # st.pyplot(plt)
 
-# # 페어플롯
-# st.subheader('Pairplot')
-# fig = sns.pairplot(df, hue="species").fig
-# plt.tight_layout()
-# st.pyplot(fig)
+# 페어플롯
+st.subheader('Pairplot')
+fig = sns.pairplot(df, hue="species").fig
+plt.tight_layout()
+st.pyplot(fig)
