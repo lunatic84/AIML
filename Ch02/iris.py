@@ -97,14 +97,14 @@ for i, ax in enumerate(axes):
 plt.tight_layout()
 st.pyplot(fig)
 
-# # 상관 행렬
-# plt.figure(figsize = (10, 8))
-# st.subheader('Correlation Matrix')
-# numerical_df = df.drop('species', axis = 1)
-# corr_matrix = numerical_df.corr()
-# sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
-# plt.tight_layout()
-# st.pyplot(plt)
+# 상관 행렬
+plt.figure(figsize = (10, 8))
+st.subheader('Correlation Matrix')
+numerical_df = df.drop('species', axis = 1)
+corr_matrix = numerical_df.corr()
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+plt.tight_layout()
+st.pyplot(plt)
 
 # # 페어플롯
 # st.subheader('Pairplot')
