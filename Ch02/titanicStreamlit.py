@@ -25,6 +25,7 @@ st.title("Titanic Survivors Prediction APP")
 
 ## Show raw dataset
 if "data" in locals() or "data" in globals():
+    st.session_state["data"] = data
     st.header("Raw Dataset")
     isCheck = st.checkbox("Show raw dataset")
     if isCheck:
