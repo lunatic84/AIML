@@ -128,6 +128,8 @@ for feature in selectedFeatures:
         else:
             userInput["Embarked_Q"] = 0
             userInput["Embarked_S"] = 0
+    else:
+        pass
         
 ## Convert User Input to DataFrame
 inputDF = pd.DataFrame([userInput])
