@@ -33,7 +33,7 @@ if "data" in locals() or "data" in globals():
 ## Feature Selection
 # 열의 이름을 제거한 후 리스트로 반환
 importantFeatures = data.columns.drop("Survived").tolist()
-
+st.write(importantFeatures)
 ## Selecting Features for Prediction
 st.header("Select Features for Prediction")
 # multiselect(설명텍스트, 선택가능한 피처의 전체목록, 기본적으로 선택될 피처)
