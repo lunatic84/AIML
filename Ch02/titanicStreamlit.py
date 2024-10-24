@@ -36,11 +36,11 @@ if "data" in locals() or "data" in globals():
 if "data" in st.session_state:
     importantFeatures = data.columns.drop("Survived").tolist()
 
-## Selecting Features for Prediction
-st.header("Select Features for Prediction")
-# multiselect(설명텍스트, 선택가능한 피처의 전체목록, 기본적으로 선택될 피처)
-selectedFeatures = st.multiselect("Select features to use for prediction:", 
-                                  options = importantFeatures, default = ["Pclass", "Sex", "Age", "Fare", "Embarked"])
+    ## Selecting Features for Prediction
+    st.header("Select Features for Prediction")
+    # multiselect(설명텍스트, 선택가능한 피처의 전체목록, 기본적으로 선택될 피처)
+    selectedFeatures = st.multiselect("Select features to use for prediction:", 
+                                    options = importantFeatures, default = ["Pclass", "Sex", "Age", "Fare", "Embarked"])
 
 ## Data Preprocessing
 data = data[selectedFeatures + ["Survived"]].dropna()
