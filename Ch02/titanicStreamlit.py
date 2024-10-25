@@ -27,7 +27,7 @@ if "data" in locals() or "data" in globals():
     if isCheck:
         st.write(data)
 
-## Feature Selection
+# Feature Selection
 # 열의 이름을 제거한 후 리스트로 반환
 importantFeatures = data.columns.drop(["PassengerId","Name","Ticket","Cabin","Survived"]).tolist()
 
