@@ -29,8 +29,7 @@ if "data" in locals() or "data" in globals():
 
 ## Feature Selection
 # 열의 이름을 제거한 후 리스트로 반환
-importantFeatures = data.columns.drop(["PassengerId","Name",
-"Ticket","Cabin","Survived"]).tolist()
+importantFeatures = data.columns.drop(["PassengerId","Name","Ticket","Cabin","Survived"]).tolist()
 
 ## Selecting Features for Prediction
 st.header("Select Features for Prediction")
