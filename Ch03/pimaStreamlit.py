@@ -57,19 +57,12 @@ if uploaded_file is not None:
         plt.title("Feature Importance")
         st.pyplot(plt)
 
-    # 데이터 컬럼 확인
-    st.write("Columns in X:", X.columns)
-    
-    # 데이터가 비어 있지 않은지 확인
-    if not X.empty:
-        selected_features = st.multiselect(
-            "Select Features for Prediction",
-            options=list(X.columns),  # 옵션 리스트화
-            default=list(X.columns)  # 기본값도 리스트로
-        )
-    else:
-        st.error("Error: No data found in the dataset!")
-
+    # 피처 선택
+    selected_features = st.multiselect(
+        "Select Features for Prediction",
+        options=X.columns,
+        default=X.columns
+    )
 
     if selected_features:
         X_train_selected = X_train[selected_features]
