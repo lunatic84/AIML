@@ -128,3 +128,4 @@ if uploaded_file is not None:
         # 예측 결과 표시 (세션 상태를 활용)
         if st.session_state["prediction"] is not None:
             st.write(f"Prediction: {'Diabetic' if st.session_state['prediction'] == 1 else 'Non-Diabetic'}")
+
