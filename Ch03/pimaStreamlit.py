@@ -6,7 +6,14 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score, precision_recall_curve, roc_curve, auc
+from sklearn.metrics import (
+    accuracy_score,
+    precision_score,
+    recall_score,
+    precision_recall_curve,
+    roc_curve,
+    auc,
+)
 
 # 애플리케이션 제목
 st.title("Pima Indians Diabetes Prediction App")
@@ -71,18 +78,24 @@ if uploaded_file is not None:
             model.fit(X_train_selected, y_train)
             y_scores = model.predict_proba(X_test_selected)[:, 1]
 
-            # Accuracy
+            # 기본 Accuracy
             y_pred = (y_scores > 0.5).astype(int)
             accuracy = accuracy_score(y_test, y_pred)
-            st.write(f"Accuracy of {classifier_name}: {accuracy:.2f}")
+            st.write(f"Default Accuracy of {classifier_name}: {accuracy:.2f}")
 
             # Threshold 조정 슬라이더
             threshold = st.slider("Adjust Threshold", 0.0, 1.0, 0.5, 0.01)
 
-            # Threshold에 따른 예측
+            # Threshold에 따른 예측 및 성능 계산
             y_pred_threshold = (y_scores > threshold).astype(int)
             accuracy_threshold = accuracy_score(y_test, y_pred_threshold)
-            st.write(f"Accuracy with threshold {threshold:.2f}: {accuracy_threshold:.2f}")
+            precision_threshold = precision_score(y_test, y_pred_threshold)
+            recall_threshold = recall_score(y_test, y_pred_threshold)
+
+            st.write(f"Performance with Threshold {threshold:.2f}:")
+            st.write(f"- Accuracy: {accuracy_threshold:.2f}")
+            st.write(f"- Precision: {precision_threshold:.2f}")
+            st.write(f"- Recall: {recall_threshold:.2f}")
 
             # 정밀도-재현율 그래프
             if st.checkbox("Show Precision-Recall vs Threshold Curve"):
