@@ -145,7 +145,8 @@ if uploaded_file is not None:
         
         if st.button("Predict"):
             prediction = (model.predict_proba([new_data])[:, 1] > threshold).astype(int)
-            st.write(f"Prediction with threshold {threshold:.2f} : {"Diabetic" if prediction[0] == 1 else "Non-Diabetic"}")
+            result = "Diabetic" if prediction[0] == 1 else "Non-Diabetic"
+            st.write(f"Prediction with threshold {threshold:.2f} : {result}")
 
     else:
         st.error("No features selected!")
